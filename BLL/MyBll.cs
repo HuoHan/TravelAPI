@@ -21,7 +21,6 @@ namespace BLL
         }
 
         //显示博客
-        [Obsolete]
         public List<Blogs> GetBlogs()
         {
             string sql = "select * from Blogs b join UserLogin u on b.Users_Id=u.UserId";
@@ -38,7 +37,6 @@ namespace BLL
         }
 
         //显示评论
-        [Obsolete]
         public List<Comment> GetComments()
         {
             string sql = "select * from Blogs b join Comment c on b.BlogsId=c.Blogs_Id join UserLogin u on u.UserId=c.Users_Id";
