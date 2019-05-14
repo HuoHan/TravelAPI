@@ -46,7 +46,7 @@ namespace BLL
             return DBHelper.ConvertTableToList<List<Comment>>(list);
         }
 
-        //添加回复1
+        //添加回复
         [Obsolete]
         public int AddReply(Reply reply)
         {
