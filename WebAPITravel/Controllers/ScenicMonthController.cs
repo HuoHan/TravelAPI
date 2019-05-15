@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 using BLL;
 using Model;
 namespace WebAPITravel.Controllers
 {
-    public class ScenicAreaController : Controller
+    public class ScenicMonthController : ApiController
     {
         ScenicAreaBll bll = new ScenicAreaBll();
-        
+        // GET: ScenicArea
         /// <summary>
-        /// 根据当前月份推荐旅游的景点
+        /// 根据月份进行推送旅游的国家
         /// </summary>
         /// <returns></returns>
         public List<Addresses> Get()
         {
-            return bll.GetAddresses();
+            return bll.GetMonthes();
         }
     }
 }
