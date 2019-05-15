@@ -26,5 +26,6 @@ namespace WebAPITravel.Controllers
         {
             return bll.AddBlogs(blogs);
         }
+        
     }
 }
