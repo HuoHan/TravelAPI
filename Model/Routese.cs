@@ -14,5 +14,6 @@ namespace Model
         public int StartArae { get; set; }
         public int EndArae { get; set; }
         public int Includes { get; set; }
+        public double Price { get; set; }
     }
 }

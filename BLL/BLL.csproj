@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="MyBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueBll.cs" />
+    <Compile Include="ScenicAreaBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

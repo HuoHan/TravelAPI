@@ -11,5 +11,7 @@ namespace Model
         public int AddressId { get; set; }
         public string AddressName { get; set; }
         public int Pid { get; set; }
+        public int Month_Id { get; set; }
+        public List<Monthes> Monthes { get; set; }
     }
 }
