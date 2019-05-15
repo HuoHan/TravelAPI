@@ -139,6 +139,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\LoginApiController.cs" />
     <Compile Include="Controllers\QuesApiController.cs" />
     <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Controllers\ScenicAreaController.cs" />
