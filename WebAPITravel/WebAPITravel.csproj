@@ -142,7 +142,7 @@
     <Compile Include="Controllers\LoginApiController.cs" />
     <Compile Include="Controllers\QuesApiController.cs" />
     <Compile Include="Controllers\ReplyController.cs" />
-    <Compile Include="Controllers\ScenicAreaController.cs" />
+    <Compile Include="Controllers\ScenicAreasController.cs" />
     <Compile Include="Controllers\ScenicMonthController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

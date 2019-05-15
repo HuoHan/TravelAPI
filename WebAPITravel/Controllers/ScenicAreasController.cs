@@ -1,16 +1,18 @@
-﻿using System;
+﻿using BLL;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using BLL;
-using Model;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
 namespace WebAPITravel.Controllers
 {
-    public class ScenicAreaController : Controller
+    public class ScenicAreasController : ApiController
     {
         ScenicAreaBll bll = new ScenicAreaBll();
-        
+
         /// <summary>
         /// 根据当前月份推荐旅游的景点
         /// </summary>
@@ -19,9 +21,9 @@ namespace WebAPITravel.Controllers
         {
             return bll.GetAddresses();
         }
-        public List<ScenicArea> Get(int countyId = 0, int addressId = 0, int monthsId = 0)
+        public List<ScenicArea> Get(int countyId , int addressId , int monthsId )
         {
-            return bll.GetScenicAreas(countyId,addressId,monthsId);
+            return bll.GetScenicAreas(countyId, addressId, monthsId);
         }
     }
 }
