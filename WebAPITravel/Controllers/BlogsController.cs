@@ -15,9 +15,14 @@ namespace WebAPITravel.Controllers
 
         //显示博客
         [Obsolete]
-        public List<Blogs> Get()
+        public List<Blogs> Get(int id)
         {
-            return bll.GetBlogs();
+            var list = bll.GetBlogs();
+            if (id != 0)
+            {
+                list = list.Where(m => m.BlogsId == id).ToList();
+            }
+            return list;
         }
 
         //添加博客
