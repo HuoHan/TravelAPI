@@ -17,7 +17,7 @@ namespace BLL
         public List<Addresses> GetMonthes()
         {
             var month = DateTime.Now.Month;
-            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,r.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id join Routese r on r.StartArae = s.Address_id where m.Id ="+month+" and a.Pid = 0";
+            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id where m.Id ="+month+" and a.Pid = 0";
             var table = DBHelper.GetDataTable(sql);
             var list = DBHelper.ConvertTableToList<List<Addresses>>(table);
             return list;
@@ -29,7 +29,7 @@ namespace BLL
         public List<Addresses> GetAddresses()
         {
             var month = DateTime.Now.Month;
-            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,r.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id join Routese r on r.StartArae = s.Address_id where m.Id =" + month + " and b.Pid != 0";
+            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id where m.Id =" + month + " and b.Pid != 0";
             var table = DBHelper.GetDataTable(sql);
             var list = DBHelper.ConvertTableToList<List<Addresses>>(table);
             return list;
@@ -43,7 +43,7 @@ namespace BLL
         /// <returns></returns>
         public List<ScenicArea> GetScenicAreas(int countyId=0,int addressId=0,int monthsId=0)
         {
-            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,r.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id join Routese r on r.StartArae = s.Address_id where 1 = 1";
+            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id where m.Id where 1 = 1";
             if (countyId != 0)
             {
                 sql += " and a.AddressId="+countyId;
