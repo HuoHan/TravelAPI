@@ -12,5 +12,7 @@ namespace Model
         public string ScenicAreaName { get; set; }
         public int Url_Id { get; set; }
         public string Introduce { get; set; }
+        public List<Addresses> Addresses { get; set; }
+        public List<Monthes> Monthes { get; set; }
     }
 }
