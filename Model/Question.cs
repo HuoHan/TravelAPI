@@ -11,5 +11,8 @@ namespace Model
         public int QuestionId { get; set; }
         public string QuestionName { get; set; }
         public string IsQuestionState { get; set; }
+        public int AnswerId { get; set; }
+        public string AnswerName { get; set; }
+        public int Question_Id { get; set; }
     }
 }

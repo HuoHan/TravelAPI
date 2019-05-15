@@ -13,8 +13,9 @@ namespace DAL
     public static class DBHelper
     {
         //获取web.config里的连接字符串
-        [Obsolete]
-        public static readonly string strCon = ConfigurationSettings.AppSettings["ConnectionName"];
+
+        public static readonly string strCon = ConfigurationManager.AppSettings["ConnectionName"];
+       
         /// <summary>
         /// 将DataTable装换为List
         /// </summary>
@@ -35,7 +36,7 @@ namespace DAL
         /// <param name="procName">存储过程名称</param>
         /// <param name="str">连接字符串</param>
         /// <returns></returns>
-        [Obsolete]
+        
         public static int ExecuteNonQueryByProcedure(string procName, SqlParameter[] paras = null)
         {
             //实例化连接对象
@@ -70,7 +71,7 @@ namespace DAL
         /// <param name="procName">存储过程名称</param>
         /// <param name="str">连接字符串</param>
         /// <returns></returns>
-        [Obsolete]
+      
         public static DataTable GetDataTableByProcedure(string procName, SqlParameter[] paras = null)
         {
             //实例化连接对象
@@ -137,7 +138,7 @@ namespace DAL
         /// <param name="sql">sql语句</param>
         /// <param name="str">连接字符串</param>
         /// <returns></returns>
-        [Obsolete]
+     
         public static DataTable GetDataTable(string sql)
         {
             //实例化连接对象
@@ -165,7 +166,7 @@ namespace DAL
         /// <param name="sql">sql语句</param>
         /// <param name="str">连接字符串</param>
         /// <returns></returns>
-        [Obsolete]
+     
         public static SqlDataReader GetDataReader(string sql)
         {
             //实例化连接对象
@@ -193,7 +194,7 @@ namespace DAL
         /// <param name="sql">sql语句</param>
         /// <param name="str">连接字符串</param>
         /// <returns></returns>
-        [Obsolete]
+   
         public static int ExecuteScalar(string sql)
         {
             //实例化连接对象
