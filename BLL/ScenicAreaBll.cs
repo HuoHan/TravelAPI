@@ -60,6 +60,28 @@ namespace BLL
             var list = DBHelper.ConvertTableToList<List<ScenicArea>>(table);
             return list;
         }
-        
+        /// <summary>
+        /// 绑定国家和城市
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<Addresses> ShowAddress(int id)
+        {
+            string str = string.Format("select *from Addresses where Pid='{0}'",id);
+            var item = DBHelper.GetDataTable(str);
+            var items = DBHelper.ConvertTableToList<List<Addresses>>(item);
+            return items;
+        }
+        /// <summary>
+        /// 绑定月份
+        /// </summary>
+        /// <returns></returns>
+        public List<Monthes> ShowMonthes()
+        {
+            string str = string.Format("select *from Monthes");
+            var item = DBHelper.GetDataTable(str);
+            var items = DBHelper.ConvertTableToList<List<Monthes>>(item);
+            return items;
+        }
     }
 }

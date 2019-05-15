@@ -144,6 +144,8 @@
     <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Controllers\ScenicAreasController.cs" />
     <Compile Include="Controllers\ScenicMonthController.cs" />
+    <Compile Include="Controllers\ShowAddressController.cs" />
+    <Compile Include="Controllers\ShowMonthController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
