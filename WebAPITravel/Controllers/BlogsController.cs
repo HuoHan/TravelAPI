@@ -13,7 +13,7 @@ namespace WebAPITravel.Controllers
     {
         MyBll bll = new MyBll();
 
-        //显示博客1
+        //显示博客
         [Obsolete]
         public List<Blogs> Get(int id)
         {
@@ -31,9 +31,5 @@ namespace WebAPITravel.Controllers
         {
             return bll.AddBlogs(blogs);
         }
-        //public List<Blogs> Get()
-        //{
-        //    return bll.GetBlogs().Take(4).ToList();
-        //}
     }
 }
