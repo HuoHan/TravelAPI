@@ -40,7 +40,7 @@ namespace BLL
         //显示评论
         public List<Comment> GetComments()
         {
-            string sql = "select * from Blogs b join Comment c on b.BlogsId=c.Blogs_Id join UserLogin u on u.UserId=c.Users_Id";
+            string sql = "select *,u.UserName as Users_Name from Blogs b join Comment c on b.BlogsId=c.Blogs_Id join UserLogin u on u.UserId = c.Users_Id join Reply r on r.Comment_Id = c.CommentId";
             var list = DBHelper.GetDataTable(sql);
             return DBHelper.ConvertTableToList<List<Comment>>(list);
         }
@@ -49,7 +49,7 @@ namespace BLL
         [Obsolete]
         public int AddReply(Reply reply)
         {
-            string sql = "insert Reply values('" + reply.TrueName + "','" + reply.Phoen + "','" + reply.Remark + "')";
+            string sql = "insert Reply values('"+reply.ReplayRemark+"','"+reply.Comment_Id+"')";
             return DBHelper.ExecuteNonQuery(sql);
         }
 
@@ -57,7 +57,7 @@ namespace BLL
         [Obsolete]
         public List<Reply> GetRepys()
         {
-            string sql = "select * from Reply";
+            string sql = "select * from Comment c join Reply r on c.CommentId=r.Comment_Id join Blogs b on c.Blogs_Id=b.BlogsId";
             var list = DBHelper.GetDataTable(sql);
             return DBHelper.ConvertTableToList<List<Reply>>(list);
         }

@@ -12,5 +12,6 @@ namespace Model
         public string CommentName { get; set; }
         public int Blogs_Id { get; set; }
         public int Users_Id { get; set; }
+        public string Users_Name { get; set; }
     }
 }

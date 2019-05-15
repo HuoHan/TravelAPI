@@ -15,9 +15,14 @@ namespace WebAPITravel.Controllers
 
         //显示回复
         [Obsolete]
-        public List<Reply> Get()
+        public List<Reply> Get(int id)
         {
-            return bll.GetRepys();
+            var list = bll.GetRepys();
+            if (id != 0)
+            {
+                list = list.Where(m => m.ReplyId == id).ToList();
+            }
+            return list;
         }
 
         //添加回复

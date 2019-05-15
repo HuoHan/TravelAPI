@@ -46,6 +46,7 @@
     <Compile Include="Answer.cs" />
     <Compile Include="Blogs.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="Indent.cs" />
     <Compile Include="Monthes.cs" />
     <Compile Include="Picture.cs" />

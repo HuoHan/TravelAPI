@@ -13,9 +13,14 @@ namespace WebAPITravel.Controllers
     {
         MyBll bll = new MyBll();
         //显示评论
-        public List<Comment> Get()
+        public List<Comment> Get(int id)
         {
-            return bll.GetComments();
+            var list=bll.GetComments();
+            if (id != 0)
+            {
+                list = list.Where(m => m.CommentId == id).ToList();
+            }
+            return list;
         }
 
         //添加评论
