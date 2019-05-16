@@ -41,20 +41,20 @@ namespace BLL
         /// <param name="addressId">根据地方进行查询</param>
         /// <param name="monthsId">根据月份进行查询</param>
         /// <returns></returns>
-        public List<ScenicArea> GetScenicAreas(int countyId=0,int addressId=0,int monthsId=0)
+        public List<ScenicArea> GetScenicAreas(string countyId = null, string addressId = null, string monthsId = null)
         {
-            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id where m.Id where 1 = 1";
-            if (countyId != 0)
+            string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id where 1 = 1";
+            if (countyId != null)
             {
-                sql += " and a.AddressId="+countyId;
+                sql += " and a.AddressId in(" + countyId + ")";
             }
-            if (addressId != 0)
+            if (addressId != null)
             {
-                sql += " and b.AddressId="+addressId;
+                sql += " and b.AddressId in(" + addressId + ")";
             }
-            if (monthsId != 0)
+            if (monthsId != null)
             {
-                sql += " and m.Id=" + monthsId;
+                sql += " and m.Id in(" + monthsId + ")";
             }
             var table = DBHelper.GetDataTable(sql);
             var list = DBHelper.ConvertTableToList<List<ScenicArea>>(table);
@@ -67,7 +67,7 @@ namespace BLL
         /// <returns></returns>
         public List<Addresses> ShowAddress(int id)
         {
-            string str = string.Format("select *from Addresses where Pid='{0}'",id);
+            string str = string.Format("select * from Addresses where Pid='{0}'",id);
             var item = DBHelper.GetDataTable(str);
             var items = DBHelper.ConvertTableToList<List<Addresses>>(item);
             return items;
@@ -78,7 +78,7 @@ namespace BLL
         /// <returns></returns>
         public List<Monthes> ShowMonthes()
         {
-            string str = string.Format("select *from Monthes");
+            string str = string.Format("select * from Monthes");
             var item = DBHelper.GetDataTable(str);
             var items = DBHelper.ConvertTableToList<List<Monthes>>(item);
             return items;

@@ -21,7 +21,7 @@ namespace WebAPITravel.Controllers
         {
             return bll.GetAddresses();
         }
-        public List<ScenicArea> Get(int countyId , int addressId , int monthsId )
+        public List<ScenicArea> Get(string countyId = null, string addressId = null, string monthsId = null)
         {
             return bll.GetScenicAreas(countyId, addressId, monthsId);
         }
