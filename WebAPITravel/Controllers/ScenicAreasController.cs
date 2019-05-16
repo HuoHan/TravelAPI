@@ -21,9 +21,25 @@ namespace WebAPITravel.Controllers
         {
             return bll.GetAddresses();
         }
-        public List<ScenicArea> Get(string countyId = null, string addressId = null, string monthsId = null)
+        /// <summary>
+        /// 点击旅游套餐页面/显示所有旅游项目
+        /// </summary>
+        /// <param name="countyId">根据国家进行查询</param>
+        /// <param name="addressId">根据地方进行查询</param>
+        /// <param name="monthsId">根据月份进行查询</param>
+        /// <returns></returns>
+        public List<ScenicArea> Get(string countyId, string addressId, string monthsId)
         {
             return bll.GetScenicAreas(countyId, addressId, monthsId);
+        }
+        /// <summary>
+        /// 具体的旅游路线
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<ScenicArea> Get(int id)
+        {
+            return bll.GetAreas(id);
         }
     }
 }

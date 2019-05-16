@@ -44,18 +44,30 @@ namespace BLL
         public List<ScenicArea> GetScenicAreas(string countyId = null, string addressId = null, string monthsId = null)
         {
             string sql = "select a.AddressId as CountryId,a.AddressName CountryName,b.AddressName PlaceName,b.AddressId PlaceId,s.*,m.* from Addresses a join Addresses b on a.AddressId = b.Pid join ScenicArea s on b.AddressId = s.Address_id join Monthes m on b.Month_Id = m.Id where 1 = 1";
-            if (countyId != null)
+            if (!string.IsNullOrEmpty(countyId))
             {
                 sql += " and a.AddressId in(" + countyId + ")";
             }
-            if (addressId != null)
+            if (!string.IsNullOrEmpty(addressId))
             {
                 sql += " and b.AddressId in(" + addressId + ")";
             }
-            if (monthsId != null)
+            if (!string.IsNullOrEmpty(monthsId))
             {
                 sql += " and m.Id in(" + monthsId + ")";
             }
+            var table = DBHelper.GetDataTable(sql);
+            var list = DBHelper.ConvertTableToList<List<ScenicArea>>(table);
+            return list;
+        }
+        /// <summary>
+        /// 具体的旅游路线
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<ScenicArea> GetAreas(int id)
+        {
+            var sql = " select * from ScenicArea s join Picture p on s.Url_Id=p.PictureId where s.ScenicAreaId="+id;
             var table = DBHelper.GetDataTable(sql);
             var list = DBHelper.ConvertTableToList<List<ScenicArea>>(table);
             return list;
@@ -65,9 +77,9 @@ namespace BLL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Addresses> ShowAddress(int id)
+        public List<Addresses> ShowAddress(string id)
         {
-            string str = string.Format("select * from Addresses where Pid='{0}'",id);
+            string str = string.Format("select * from Addresses where Pid in('{0}')",id);
             var item = DBHelper.GetDataTable(str);
             var items = DBHelper.ConvertTableToList<List<Addresses>>(item);
             return items;
