@@ -16,7 +16,7 @@ namespace WebAPITravel.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Addresses> ShowAddress(string id)
+        public List<Addresses> Get(string id)
         {
             return bll.ShowAddress(id);
         }

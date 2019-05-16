@@ -15,7 +15,7 @@ namespace WebAPITravel.Controllers
         /// 绑定月份
         /// </summary>
         /// <returns></returns>
-        public List<Monthes> ShowMonthes()
+        public List<Monthes> Get()
         {
 
             return bll.ShowMonthes();
