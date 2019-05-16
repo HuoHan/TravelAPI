@@ -20,7 +20,7 @@ namespace WebAPITravel.Controllers
             return bll.Register(u);
         }
         //检查是否存在该用户/登陆
-        public int Get(string userName, string userPwd)
+        public List<UserLogin> Get(string userName, string userPwd)
         {
             return bll.CheckLogin(userName, userPwd);
         }

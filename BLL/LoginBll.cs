@@ -47,15 +47,12 @@ namespace BLL
         /// <param name="userName"></param>
         /// <param name="userPwd"></param>
         /// <returns></returns>
-        public int CheckLogin(string userName, string userPwd)
+        public List<UserLogin> CheckLogin(string userName, string userPwd)
         {
-            SqlParameter[] par = new SqlParameter[] {
-                new SqlParameter("@UserName",userName),
-                new SqlParameter("@UserPwd",userPwd)
-            };
-            string sql = string.Format("select * from UserLogin where UserName='{0}' and UserPwd='{1}'", par);
+
+            string sql = string.Format("select * from UserLogin where UserName='{0}' and UserPwd='{1}'", userName, userPwd);
             var dt = DBHelper.GetDataTable(sql);
-            return DBHelper.ConvertTableToList<List<UserLogin>>(dt).Count();
+            return DBHelper.ConvertTableToList<List<UserLogin>>(dt);
         }
     }
 }
